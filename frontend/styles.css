@@ -1,0 +1,25 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+}
+
+.navbar a,
+.navbar button {
+    margin-right: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.blog-card {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.blog-card img {
+    max-width: 100%;
+    height: auto;
+}

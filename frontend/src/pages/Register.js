@@ -2,25 +2,32 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../api";
 
-const Login = () => {
+const Register = () => {
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const handleLogin = async (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await API.post("/auth/login", { email, password });
-            localStorage.setItem("token", data.token);
-            navigate("/");
+            await API.post("/auth/register", { username, email, password });
+            navigate("/login");
         } catch (err) {
             console.error(err);
         }
     };
 
     return (
-        <form onSubmit={handleLogin}>
-            <h1>Login</h1>
+        <form onSubmit={handleRegister}>
+            <h1>Register</h1>
+            <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+            />
             <input
                 type="email"
                 placeholder="Email"
@@ -35,9 +42,9 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
             />
-            <button type="submit">Login</button>
+            <button type="submit">Register</button>
         </form>
     );
 };
 
-export default Login;
+export default Register;
