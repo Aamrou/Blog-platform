@@ -4,7 +4,8 @@ import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import BlogPage from "./pages/BlogPage";
 import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
+import SignupPage from './pages/SignupPage';
+
 
 function App() {
   return (
